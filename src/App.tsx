@@ -1,26 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import logo from "./logo.svg";
+import "./App.css";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [cont, setCont] = useState<number>(0);
+    const [next, setNext] = useState<number>(0);
+
+    function increment() {
+        setCont(cont + 1);
+    }
+
+    function nextF() {
+        setNext(next + 1);
+    }
+
+    useEffect(() => {
+        // toda vez que cont mudar o useEffect reexeculta
+
+        console.log("pagina api");
+        
+    }, [cont]);
+
+    useEffect(()=>{
+      console.log("next"+next);
+    },[next])
+
+    return (
+        <>
+            <h1 className="App">{cont}</h1>
+            <button onClick={increment}>pagina</button>
+            <button onClick={nextF}>next</button>
+        </>
+    );
 }
 
 export default App;
