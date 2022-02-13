@@ -9,7 +9,7 @@ const Timer: React.FC = () => {
     function incrementZero(value: number) {
         return value < 10 ? "0" + value : value
     }
-    //..
+    console.log()
 
     useEffect(() => {
         if (!But) return
